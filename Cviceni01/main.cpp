@@ -1,38 +1,38 @@
 #include <iostream>
 
-struct Trojuhelnik {
+struct Triangle {
 	int a, b, c;
 };
 
-bool lzeSestrojit(Trojuhelnik triangle) {
+bool canTriangleBeConstructed(Triangle triangle) {
 	return triangle.a + triangle.b > triangle.c && triangle.a + triangle.c > triangle.b && triangle.b + triangle.c > triangle.a;
 }
 
 int main(int argc, char** argv) {
-	std::cout << "Zadej pocet trojuhelniku k nacteni: " << std::endl;
-	int pocetTr = 0;
-	std::cin >> pocetTr;
+	std::cout << "How many triangles do you want to work with:  " << std::endl;
+	int numberOfTriangles = 0;
+	std::cin >> numberOfTriangles;
 
 
-	Trojuhelnik* poleTrojuhelniku = new Trojuhelnik[pocetTr];
+	Triangle* triangles = new Triangle[numberOfTriangles];
 
-	for (int i = 0; i < pocetTr; i++) {
-		std::cout << "Zadej stranu a pro trojuhelnik " << (i + 1) << ": ";
-		std::cin >> poleTrojuhelniku[i].a;
-		std::cout << "Zadej stranu b pro trojuhelnik " << (i + 1) << ": ";
-		std::cin >> poleTrojuhelniku[i].b;
-		std::cout << "Zadej stranu c pro trojuhelnik " << (i + 1) << ": ";
-		std::cin >> poleTrojuhelniku[i].c;
+	for (int i = 0; i < numberOfTriangles; i++) {
+		std::cout << "Fill in the side a for the triangle with id " << (i + 1) << ": ";
+		std::cin >> triangles[i].a;
+		std::cout << "Fill in the side b for the triangle with id  " << (i + 1) << ": ";
+		std::cin >> triangles[i].b;
+		std::cout << "Fill in the side c for the triangle with id  " << (i + 1) << ": ";
+		std::cin >> triangles[i].c;
 
-		if (lzeSestrojit(poleTrojuhelniku[i])) {
-			int obvod = poleTrojuhelniku[i].a + poleTrojuhelniku[i].b + poleTrojuhelniku[i].c;
-			std::cout << "Obvod je: " << obvod << std::endl;
+		if (canTriangleBeConstructed(triangles[i])) {
+			int circumference = triangles[i].a + triangles[i].b + triangles[i].c;
+			std::cout << "Circumference of this triangle is: " << circumference << std::endl;
 		}
 		else {
-			std::cout << "Nelze sestrojit trojuhelnik" << std::endl;
+			std::cout << "This triangle cannot be constructed" << std::endl;
 		}
 	}
 
-	delete[] (poleTrojuhelniku);
+	delete[] (triangles);
 	return 0;
 }
