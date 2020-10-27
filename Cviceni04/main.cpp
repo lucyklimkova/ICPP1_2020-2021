@@ -28,9 +28,14 @@ int main(char** argc, int argv) {
 		newArray[i] = new Time(h,m,s);
 	}
 
+	std::cout << "Printing times from an unsorted array: " << std::endl;
+	for (int i = 0; i < SIZE; i++) {
+		std::cout << "Time on position " << i << " is: " << newArray[i]->ToString() << std::endl;
+	}
+
 	SortArray(newArray, SIZE);
 
-	std::cout << "Printing times from and array: " << std::endl;
+	std::cout << "Printing times from an sorted array: " << std::endl;
 	for (int i = 0; i < SIZE; i++) {
 		std::cout << "Time on position " << i <<" is: " << newArray[i]->ToString() << std::endl;
 	}
