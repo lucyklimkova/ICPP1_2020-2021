@@ -3,7 +3,7 @@
 #include <string>
 #include "IComparable.h"
 
-class Time : virtual public IComparable {
+class Time : public IComparable {
 private:
 	int _hour;
 	int _minute;
@@ -11,7 +11,7 @@ private:
 
 public:
 	Time(int hour, int minute, int second);
-	virtual std::string ToString() const;
+	std::string ToString() const;
 	int CompareTo(IComparable* object) const;
 };
 
