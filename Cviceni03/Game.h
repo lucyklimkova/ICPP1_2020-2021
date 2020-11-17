@@ -4,17 +4,18 @@
 #include "MovableObject.h"
 
 class Game {
-	int* arrayOfIds = new int[100];
-	Object** arrayOfObjects = new Object * [10];
-	MovableObject** arrayOfMovableObjects = new MovableObject * [100];
-	MovableObject** arrayOfMovableObjectsRotating = new MovableObject * [100];
+	int* arrayOfIds;
+	Object** arrayOfObjects;
+	MovableObject** arrayOfMovableObjects;
+	MovableObject** arrayOfMovableObjectsRotating;
 
-	int numberOfStaticObjects = 0;
-	int numberOfMovableObjects = 0;
-	int numberOfMovableObjectsRotating = 0;
-	int arrayCounter = 0;
+	int numberOfStaticObjects;
+	int numberOfMovableObjects;
+	int numberOfMovableObjectsRotating;
+	int arrayCounter;
 
 public:
+	Game();
 	~Game();
 	void InsertObject(Object* o);
 	int* FindIdsOfStaticObjects(double xmin, double xmax, double ymin, double ymax);
