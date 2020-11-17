@@ -6,11 +6,11 @@ Object::Object(int id) {
 	y = 0;
 }
 
-int Object::GetId() {
+int Object::GetId() const  {
 	return id;
 }
 
-double Object::GetX() {
+double Object::GetX() const {
 	return x;
 }
 
@@ -18,7 +18,7 @@ void Object::SetX(double x) {
 	this->x = x;
 }
 
-double Object::GetY() {
+double Object::GetY() const {
 	return y;
 }
 

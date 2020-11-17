@@ -8,11 +8,11 @@ class Object {
 public:
 	Object() = delete;
 	Object(int id);
-	virtual ~Object() { };
-	int GetId();
-	double GetX();
+	virtual ~Object() { }
+	int GetId() const;
+	double GetX() const;
 	void SetX(double x);
-	double GetY();
+	double GetY() const;
 	void SetY(double y);
 };
 

@@ -22,9 +22,9 @@ public:
 	MovableObject** FindMovableObjectsInArea(double x, double y, double r);
 	MovableObject** FindMovableObjectsInArea(double x, double y, double r, double umin, double umax);
 	//getters
-	int GetNumberOfStaticObjects();
-	int GetNumberOfMovableObjects();
-	int GetNumberOfMovableObjectsRotating();
+	int GetNumberOfStaticObjects() const;
+	int GetNumberOfMovableObjects() const;
+	int GetNumberOfMovableObjectsRotating() const;
 };
 
 #endif // !GAME_H

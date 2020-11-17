@@ -15,6 +15,7 @@ namespace Model {
 		Element* _lastElement;
 	public:
 		PhoneNumbersList();
+		~PhoneNumbersList();
 		void addPerson(Entity::Person person);
 		std::string findPhoneNumber(std::string name) const;
 		std::string findPhoneNumber(int id) const;

@@ -23,8 +23,6 @@ private:
 };
 
 
-#endif // !GROWINGCONTAINER_H
-
 template<typename DataType, int initSize>
 GrowingContainer<DataType, initSize>::GrowingContainer() {
 	_array = new DataType[initSize];
@@ -97,3 +95,5 @@ template<typename DataType, int initSize>
 void GrowingContainer<DataType, initSize>::setGrowCoeficient(int coeficient) {
 	growCoeficient = coeficient;
 }
+
+#endif // !GROWINGCONTAINER_H

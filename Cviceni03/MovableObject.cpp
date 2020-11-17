@@ -1,6 +1,6 @@
 #include "MovableObject.h"
 
-double MovableObject::GetAngleOfRotation() {
+double MovableObject::GetAngleOfRotation() const {
 	return angleOfRotation;
 }
 

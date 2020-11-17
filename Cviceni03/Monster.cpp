@@ -1,6 +1,6 @@
 #include "Monster.h"
 
-int Monster::GetHp() {
+int Monster::GetHp() const {
 	return hp;
 }
 
@@ -8,7 +8,7 @@ void Monster::SetHp(int hp) {
 	this->hp = hp;
 }
 
-int Monster::GetMaxHp() {
+int Monster::GetMaxHp() const {
 	return maxhp;
 }
 

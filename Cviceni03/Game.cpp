@@ -76,18 +76,15 @@ MovableObject** Game::FindMovableObjectsInArea(double x, double y, double r, dou
 
 }
 
-int Game::GetNumberOfStaticObjects()
-{
+int Game::GetNumberOfStaticObjects() const {
 	return 	numberOfStaticObjects;
 }
 
-int Game::GetNumberOfMovableObjects()
-{
+int Game::GetNumberOfMovableObjects() const {
 	return numberOfMovableObjects;
 }
 
-int Game::GetNumberOfMovableObjectsRotating()
-{
+int Game::GetNumberOfMovableObjectsRotating() const {
 	return numberOfMovableObjectsRotating;
 }
 

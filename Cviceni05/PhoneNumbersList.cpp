@@ -3,17 +3,17 @@
 
 
 Model::PhoneNumbersList::PhoneNumbersList() {
-	_firstElement = NULL;
-	_lastElement = NULL;
+	_firstElement = nullptr;
+	_lastElement = nullptr;
 }
 
 void Model::PhoneNumbersList::addPerson(Entity::Person person)
 {
 	Element* element = new Element;
 	element->person = person;
-	element->nextElement = NULL;
+	element->nextElement = nullptr;
 
-	if (_firstElement == NULL) {
+	if (_firstElement == nullptr) {
 		_firstElement = element;
 		_lastElement = element;
 	}
@@ -30,12 +30,12 @@ std::string Model::PhoneNumbersList::findPhoneNumber(std::string name) const {
 
 	Element* newElement;
 	newElement = _firstElement;
-	while (newElement != NULL) {
+	while (newElement != nullptr) {
 		if (newElement->person.GetName() == name)
 			return newElement->person.GetPhone();
 		newElement = newElement->nextElement;
 	}
-	if (newElement == NULL) {
+	if (newElement == nullptr) {
 		throw std::runtime_error("Phone number not found");
 	}
 }
@@ -47,12 +47,23 @@ std::string Model::PhoneNumbersList::findPhoneNumber(int id) const {
 
 	Element* newElement;
 	newElement = _firstElement;
-	while (newElement != NULL) {
+	while (newElement != nullptr) {
 		if (newElement->person.GetId() == id)
 			return newElement->person.GetPhone();
 		newElement = newElement->nextElement;
 	}
-	if (newElement == NULL) {
+	if (newElement == nullptr) {
 		throw std::runtime_error("Phone number not found");
+	}
+}
+
+
+Model::PhoneNumbersList::~PhoneNumbersList() {
+	Element* newElement = _firstElement;
+
+	while (newElement != nullptr) {
+		Element* temp = newElement->nextElement;
+		delete newElement;
+		newElement = temp;
 	}
 }

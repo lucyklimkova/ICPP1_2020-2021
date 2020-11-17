@@ -10,8 +10,8 @@ class StaticObject : public Object {
 	BarrierType barrierType;
 public:
 	StaticObject(int id, BarrierType barrierType);
-	~StaticObject() { };
-	BarrierType GetBarrierType();
+	~StaticObject() { }
+	BarrierType GetBarrierType() const;
 };
 
 #endif // !STATIC_OBJECT_H

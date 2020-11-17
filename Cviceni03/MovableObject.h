@@ -7,9 +7,8 @@
 class MovableObject : public Object {
 	double angleOfRotation;
 public:
-	MovableObject(int id) : Object(id) { angleOfRotation = 0; };
-	~MovableObject() { };
-	double GetAngleOfRotation();
+	MovableObject(int id) : Object(id) { angleOfRotation = 0.0; };
+	double GetAngleOfRotation() const;
 	void SetAngleOfRotation(double angleOfRotation);
 };
 
