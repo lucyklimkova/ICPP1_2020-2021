@@ -13,6 +13,7 @@ private:
 
 public:
 	Person();
+	~Person();
 	Person(std::string firstName, std::string lastName, Address placeOfResidence, Date dateOfBirth);
 	friend std::ostream& operator<< (std::ostream& out, const Person& person);
 	friend std::istream& operator>> (std::istream& in, Person& person);

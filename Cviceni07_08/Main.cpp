@@ -39,11 +39,10 @@ void load() {
 	while (std::getline(read, line)) {
 		++numberOfLines;
 	}
-		
-	read.clear();
-	read.seekg(0);
 
 	Person* listOfPersons = new Person[numberOfLines];
+	read.clear();
+	read.seekg(0);
 
 	for (int i = 0; i < numberOfLines; i++) {
 		std::getline(read, line);
@@ -58,6 +57,8 @@ void load() {
 	}
 
 	delete[] listOfPersons;
+	read.close();
+	
 }
 
 void saveToBin() {
@@ -90,23 +91,32 @@ void saveToBin() {
 void loadFromBin() {
 
 	std::ifstream readBinFile("outputFile.dat", std::ios::out | std::ios::binary);
-	Person persons[3];
-	for (int i = 0; i < 3; i++) {
-		readBinFile.read((char*)&persons[i], sizeof(Person));
-	}		
-	readBinFile.close();
 
-	for (int i = 0; i < 3; i++) {
+	readBinFile.seekg(0, std::ios::end);
+	int size = readBinFile.tellg() / sizeof(Person);
+	Person* persons = new Person[size];
+	readBinFile.seekg(0);
+
+	for (int i = 0; i < size; i++) {
+		readBinFile.read((char*)&persons[i], sizeof(Person));		
+	}		
+
+	for (int i = 0; i < size; i++) {
 		std::cout << persons[i] << std::endl;
 	}
+	readBinFile.close();
 		
 }
 
 int main(char** argv, int argc) {
+	std::cout << "Load txt file: " << std::endl;
 	save();
 	load();
+
+	std::cout << "Load BIN file:" << std::endl;
 	saveToBin();
 	loadFromBin();
 
+	system("pause");
 	return 0;
 }

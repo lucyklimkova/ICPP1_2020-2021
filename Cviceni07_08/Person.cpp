@@ -6,6 +6,9 @@ Person::Person() {
 	_lastName = "";
 }
 
+Person::~Person() {
+}
+
 Person::Person(std::string firstName, std::string lastName, Address placeOfResidence, Date dateOfBirth) {
 	_firstName = firstName;
 	_lastName = lastName;
@@ -19,9 +22,6 @@ std::ostream& operator<<(std::ostream& out, const Person& person) {
 }
 
 std::istream& operator>>(std::istream& in, Person& person) {
-	in >> person._firstName;
-	in >> person._lastName;
-	in >> person._placeOfResidence;
-	in >> person._dateOfBirth;
+	in >> person._firstName >> person._lastName >> person._placeOfResidence >> person._dateOfBirth;
 	return in;
 }

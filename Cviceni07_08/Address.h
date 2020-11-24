@@ -11,6 +11,7 @@ private:
 
 public:
 	Address();
+	~Address();
 	Address(std::string street, std::string city, int zipCode);
 	friend std::ostream& operator<< (std::ostream& out, const Address& address);
 	friend std::istream& operator>> (std::istream& in, Address& address);

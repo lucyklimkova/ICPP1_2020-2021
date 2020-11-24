@@ -10,6 +10,7 @@ private:
 
 public:
 	Date();
+	~Date();
 	Date(int day, int month, int year);
 	friend std::ostream& operator<< (std::ostream& out, const Date& date);
 	friend std::istream& operator>> (std::istream& in, Date& date);
