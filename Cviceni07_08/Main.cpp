@@ -34,30 +34,30 @@ void save() {
 void load() {
 	int numberOfLines = 0;
 	std::string line;
-	std::ifstream read("outputFile.txt");
+	std::ifstream file{};
 
+	std::ifstream read("outputFile.txt");
 	while (std::getline(read, line)) {
 		++numberOfLines;
 	}
+	read.close();
 
 	Person* listOfPersons = new Person[numberOfLines];
-	read.clear();
-	read.seekg(0);
+	file.open("outputFile.txt");
 
 	for (int i = 0; i < numberOfLines; i++) {
-		std::getline(read, line);
-		std::istringstream stream(line);
 		Person newPerson;
-		stream >> newPerson;
+		file >> newPerson;
 		listOfPersons[i] = newPerson;
+		
 	}
 
 	for (int i = 0; i < numberOfLines; i++) {
-		std::cout << listOfPersons[i] << std::endl;
+		std::cout << listOfPersons[i]  << std::endl;
 	}
 
 	delete[] listOfPersons;
-	read.close();
+	file.close();
 	
 }
 
@@ -99,12 +99,13 @@ void loadFromBin() {
 
 	for (int i = 0; i < size; i++) {
 		readBinFile.read((char*)&persons[i], sizeof(Person));		
-	}		
+	}	
+	readBinFile.close();
 
 	for (int i = 0; i < size; i++) {
 		std::cout << persons[i] << std::endl;
 	}
-	readBinFile.close();
+
 		
 }
 

@@ -14,13 +14,14 @@ Date::~Date() {
 }
 
 std::ostream& operator<<(std::ostream& out, const Date& date) {
-	out << date._day << ". " << date._month << ". " << date._year;
+	out << date._day << " " << date._month << " " << date._year;
 	return out;
 }
 
 std::istream& operator>>(std::istream& in, Date& date) {
 
-	char ch;
-	in >> date._day >> ch >> date._month >> date._year;
+	in >> date._day;
+	in >> date._month;
+	in >> date._year;
 	return in;
 }

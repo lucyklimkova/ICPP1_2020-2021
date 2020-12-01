@@ -22,6 +22,9 @@ std::ostream& operator<<(std::ostream& out, const Person& person) {
 }
 
 std::istream& operator>>(std::istream& in, Person& person) {
-	in >> person._firstName >> person._lastName >> person._placeOfResidence >> person._dateOfBirth;
+	in >> person._firstName;
+	in >> person._lastName;
+	in >> person._placeOfResidence;
+	in >> person._dateOfBirth;
 	return in;
 }
